@@ -1,0 +1,21 @@
+
+db<- read.csv('train.csv')
+View(db)
+
+db$text<-gsub("#[A-Za-z0-9]+|@[A-Za-z0-9]+|\\w+(?:\\.\\w+)*/\\S+", "", db$text)
+db$text<-toupper(db$text)
+
+db$text<-gsub("HTTP://","",db$text)
+db$text<-gsub("HTTPS://","",db$text)
+db$text<-gsub("[^\x01-\x7F]", "",db$text)
+db$text<-gsub("B&amp;N", "",db$text)
+db$text<-gsub("#", "",db$text)
+db$text<-gsub('(s+)(A|AN|AND|THE|I)(s+)', '', db$text)
+db$text<-gsub(':', '', db$text)
+db$text<-gsub("'", '', db$text)
+db$text<-gsub("--|", '', db$text)
+db$text<-gsub('[[:punct:]]', '', db$text)
+
+
+View(db)
+
