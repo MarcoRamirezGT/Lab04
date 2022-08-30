@@ -19,3 +19,9 @@ db$text<-gsub('[[:punct:]]', '', db$text)
 
 View(db)
 
+
+write.csv(db,"train_limpios.csv", row.names = FALSE)
+
+
+data<-read.csv('train_limpios.csv')
+View(data)
